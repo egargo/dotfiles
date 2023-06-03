@@ -1,10 +1,7 @@
 #!/usr/bin/sh
 
-#git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins
-#git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins
-
 # mkdir ~/.config
-mkdir -pv ~/.config/alacritty
+# mkdir -pv ~/.config/alacritty
 mkdir -pv ~/.config/nvim
 
 # mkdir ~/
@@ -15,16 +12,40 @@ mkdir -pv ~/Projects/Personal
 mkdir -pv ~/Projects/GitHub
 mkdir -pv ~/Projects/University
 
+
 # cp -v .config ~/.config
-cp -v .fonts/*.ttf ~/.fonts/ 2>/dev/null
-cp -v .config/alacritty ~/.config/alacritty/alacritty.yml 2>/dev/null
-cp -v .config/Code/User/settings.json ~/.config/Code/User/settings.json 2>/dev/null
-cp -v .config/nvim ~/.config/nvim/init.vim 2>/dev/null
-cp -v .config/bookmarks.html ~/.config/bookmarks.html 2>/dev/null
-cp -v .config/ublockorigin.txt ~/.config/ublockorigin.txt 2>/dev/null
-cp -v .config/starship.toml ~/.config/starship.toml 2>/dev/null
+cp .fonts/*.ttf ~/.fonts/ 2>/dev/null
+
+if command -v alacritty; then
+    cp -v .config/alacritty ~/.config/alacritty/alacritty.yml 2>/dev/null
+fi
+
+if command -v nvim; then
+    cd .config/nvim/kickstart.nvim/ && git pull origin master && cd ../../../
+    cp -vR .config/nvim/* ~/.config/nvim/* 2>/dev/null
+else
+    echo "Install guide: https://github.com/neovim/neovim/wiki/Building-Neovim#quick-start"
+fi
+
+if command -v code; then
+    cp -v .config/Code/User/settings.json ~/.config/Code/User/settings.json 2>/dev/null
+fi
+
+if command -v starship; then
+    cp -v .config/starship.toml ~/.config/starship.toml 2>/dev/null
+else
+    echo "curl -sS https://starship.rs/install.sh | sh"
+fi
 
 # cp -v . ~/
-cp -v .tmux.conf ~/.tmux.conf 2>/dev/null
-cp -v .zshenv ~/.zshenv 2>/dev/null
+if command -v tmux; then
+    cp -v .tmux.conf ~/.tmux.conf 2>/dev/null
+fi
 
+if command -v zsh; then
+    cp -v .zshenv ~/.zshenv 2>/dev/null
+    cp -v .zshrc ~/.zshrc 2>/dev/null
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins
+fi
