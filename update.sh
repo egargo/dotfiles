@@ -8,3 +8,4 @@ cp -vR ~/.fonts/*.ttf .fonts/ 2>/dev/null
 cp -v  ~/.tmux.conf . 2>/dev/null
 cp -v  ~/.zshenv . 2>/dev/null
 cp -v  ~/.zshrc . 2>/dev/null
+cp -v  ~/.basrc . 2>/dev/null
