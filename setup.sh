@@ -1,13 +1,10 @@
 #!/usr/bin/sh
 
+
 # mkdir ~/.config
-# mkdir -pv ~/.config/alacritty
+mkdir -pv ~/.config/alacritty
 mkdir -pv ~/.config/nvim
-
-# mkdir ~/
 mkdir -pv ~/.fonts
-
-# mkdir ~/Projects
 mkdir -pv ~/Projects/Personal
 mkdir -pv ~/Projects/GitHub
 mkdir -pv ~/Projects/University
@@ -17,7 +14,7 @@ mkdir -pv ~/Projects/University
 cp .fonts/*.ttf ~/.fonts/ 2>/dev/null
 
 if command -v alacritty; then
-    cp -v .config/alacritty ~/.config/alacritty/alacritty.yml 2>/dev/null
+    cp -v .config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 2>/dev/null
 fi
 
 if command -v nvim; then
@@ -43,11 +40,11 @@ if command -v tmux; then
 fi
 
 if command -v zsh; then
-    cp -v .zshenv ~/.zshenv 2>/dev/null
+    rm -rf ~/.oh-my-zsh
+    curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     cp -v .zshrc ~/.zshrc 2>/dev/null
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins
-else
-    cp -v .bashrc ~/.bashrc 2>/dev/null
+    cp -v .zshenv ~/.zshenv 2>/dev/null
+    echo "Finished setting up ZSH"
 fi

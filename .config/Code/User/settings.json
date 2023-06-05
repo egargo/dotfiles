@@ -61,7 +61,7 @@
   "window.zoomKey": null,
   "window.menuBarVisibility": "always",
   "workbench.colorTheme": "Default Dark+",
-  "window.zoomLevel": -2,
+  "window.zoomLevel": -3,
   "keybindings.remove": {
     "workbench.action.zoomIn": {
       "key": null,
@@ -69,5 +69,6 @@
     "workbench.action.zoomOut": {
       "key": null,
     }
-  }
+  },
+  "vim.vimrc.path": "~/Projects/Personal/dotfiles/.config/nvim/legacy.vim"
 }
