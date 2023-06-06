@@ -5,6 +5,8 @@ export PATH=$PATH:$HOME/.local/bin
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export PATH=$HOME/.node/bin:$PATH
+
 autoload -Uz compinit
 compinit -d ~/.config/zsh/.zcompdump
 
@@ -135,6 +137,7 @@ alias vim="nvim"
 alias exot="exit"
 alias exut="exit"
 # alias code="codium"
+# alias node="$HOME/.node/bin/node"
 alias neofetch="~/Projects/GitHub/neofetch/./neofetch"
 alias ts-node="npx ts-node"
 
