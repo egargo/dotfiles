@@ -132,11 +132,13 @@ require('lazy').setup({
   {
     -- Theme inspired by Atom
     -- 'navarasu/onedark.nvim',
-    'rebelot/kanagawa.nvim',
-    -- 'ellisonleao/gruvbox.nvim',
+    -- 'rebelot/kanagawa.nvim',
+    'ellisonleao/gruvbox.nvim',
+    -- 'catppuccin/nvim',
+    -- 'folke/tokyonight.nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'kanagawa-dragon'
+      vim.cmd.colorscheme 'gruvbox'
     end,
   },
 
@@ -146,8 +148,8 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
-        theme = 'kanagawa',
+        icons_enabled = true,
+        theme = 'gruvbox',
         component_separators = '|',
         section_separators = '',
       },
@@ -518,7 +520,7 @@ cmp.setup {
         luasnip.jump(-1)
       else
         fallback()
-      end
+     end
     end, { 'i', 's' }),
   },
   sources = {
