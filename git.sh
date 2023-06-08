@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 # chmod +x git.sh
 # ./git.sh email "Name"

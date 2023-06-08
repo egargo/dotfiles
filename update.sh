@@ -1,4 +1,4 @@
-#/usr/bin/sh
+#/bin/sh
 
 cp -v  ~/.config/alacritty/alacritty.yml .config/alacritty/ 2>/dev/null
 cp -v  ~/.config/Code/User/settings.json .config/Code/User/ 2>/dev/null
