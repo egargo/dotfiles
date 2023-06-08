@@ -136,8 +136,6 @@ alias vi="nvim"
 alias vim="nvim"
 alias exot="exit"
 alias exut="exit"
-# alias code="codium"
-# alias node="$HOME/.node/bin/node"
 alias neofetch="~/Projects/GitHub/neofetch/./neofetch"
 alias ts-node="npx ts-node"
 
