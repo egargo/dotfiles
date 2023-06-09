@@ -4,6 +4,7 @@
 # mkdir ~/.config
 mkdir -pv ~/.config/alacritty
 mkdir -pv ~/.config/nvim
+mkdir -pv ~/.config/zsh
 mkdir -pv ~/.fonts
 mkdir -pv ~/Projects/Personal
 mkdir -pv ~/Projects/GitHub
