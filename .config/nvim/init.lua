@@ -230,7 +230,7 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Editorconfig integration
-vim.g.editorconfig = true
+vim.g.editorconfig = false
 
 -- Relative number
 vim.o.relativenumber = true
@@ -458,9 +458,16 @@ end
 local servers = {
   -- clangd = {},
   -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
+  bashls = {},
+  cssls = {},
+  eslint = {},
+  html = {},
+  marksman = {},
+  pyright = {},
+  rust_analyzer = {},
+  taplo = {},
+  tsserver = {},
+  yamlls = {},
 
   lua_ls = {
     Lua = {
