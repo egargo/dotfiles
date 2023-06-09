@@ -18,8 +18,7 @@ if command -v alacritty; then
 fi
 
 if command -v nvim; then
-    # cd .config/nvim/kickstart.nvim/ && git pull origin master && cd ../../../
-    cp -vR .config/nvim/* ~/.config/nvim/* 2>/dev/null
+    cp -vR .config/nvim/* ~/.config/nvim 2>/dev/null
 else
     echo "Install guide: https://github.com/neovim/neovim/wiki/Building-Neovim#quick-start"
 fi
