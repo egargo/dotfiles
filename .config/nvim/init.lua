@@ -230,7 +230,7 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Editorconfig integration
-vim.g.editorconfig = false
+vim.g.editorconfig = true
 
 -- Relative number
 vim.o.relativenumber = true
