@@ -12,24 +12,26 @@ mkdir -pv ~/Projects/University
 
 
 # cp -v .config ~/.config
-cp .fonts/*.ttf ~/.fonts/ 2>/dev/null
+cp fonts/*.ttf ~/.fonts/ 2>/dev/null
+
+cp -v local/share/flatpak/overrides/* ~/.local/share/flatpak/overrides/
 
 if command -v alacritty; then
-    cp -v .config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 2>/dev/null
+    cp -v config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 2>/dev/null
 fi
 
 if command -v nvim; then
-    cp -vR .config/nvim/* ~/.config/nvim 2>/dev/null
+    cp -vR config/nvim/* ~/.config/nvim 2>/dev/null
 else
     echo "Install guide: https://github.com/neovim/neovim/wiki/Building-Neovim#quick-start"
 fi
 
 if command -v code; then
-    cp -v .config/Code/User/settings.json ~/.config/Code/User/settings.json 2>/dev/null
+    cp -v config/Code/User/settings.json ~/.config/Code/User/settings.json 2>/dev/null
 fi
 
 if command -v starship; then
-    cp -v .config/starship.toml ~/.config/starship.toml 2>/dev/null
+    cp -v config/starship.toml ~/.config/starship.toml 2>/dev/null
 else
     echo "curl -sS https://starship.rs/install.sh | sh"
 fi
@@ -40,6 +42,7 @@ if command -v tmux; then
 fi
 
 if command -v neofetch; then
+    rm -r ~/Projects/GitHub/neofetch
     git clone https://github.com/dylanaraps/neofetch.git ~/Projects/GitHub/neofetch
 fi
 
