@@ -39,6 +39,10 @@ if command -v tmux; then
     cp -v .tmux.conf ~/.tmux.conf 2>/dev/null
 fi
 
+if command -v neofetch; then
+    git clone https://github.com/dylanaraps/neofetch.git ~/Projects/GitHub/neofetch
+fi
+
 if command -v zsh; then
     rm -rf ~/.oh-my-zsh
     curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash
