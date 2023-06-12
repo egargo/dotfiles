@@ -258,7 +258,6 @@ vim.o.mouse = 'a'
 --  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
-
 -- Enable break indent
 vim.o.breakindent = true
 
@@ -462,19 +461,17 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
   bashls = {},
   cssls = {},
   eslint = {},
   html = {},
+  jsonls = {},
   marksman = {},
   pyright = {},
   rust_analyzer = {},
   taplo = {},
   tsserver = {},
   yamlls = {},
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
