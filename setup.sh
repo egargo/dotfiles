@@ -41,10 +41,8 @@ if command -v tmux; then
     cp -v .tmux.conf ~/.tmux.conf 2>/dev/null
 fi
 
-if command -v neofetch; then
-    rm -r ~/Projects/GitHub/neofetch
-    git clone https://github.com/dylanaraps/neofetch.git ~/Projects/GitHub/neofetch
-fi
+rm -rf ~/Projects/GitHub/neofetch
+git clone https://github.com/dylanaraps/neofetch.git ~/Projects/GitHub/neofetch
 
 if command -v zsh; then
     rm -rf ~/.oh-my-zsh
