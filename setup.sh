@@ -44,6 +44,10 @@ fi
 rm -rf ~/Projects/GitHub/neofetch
 git clone https://github.com/dylanaraps/neofetch.git ~/Projects/GitHub/neofetch
 
+if command -v distrobox; then
+    curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix ~/.local
+fi
+
 if command -v zsh; then
     rm -rf ~/.oh-my-zsh
     curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash
