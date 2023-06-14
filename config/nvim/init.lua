@@ -140,7 +140,6 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
     -- 'navarasu/onedark.nvim',
     -- 'rebelot/kanagawa.nvim',
     'ellisonleao/gruvbox.nvim',
@@ -155,6 +154,9 @@ require('lazy').setup({
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
     -- See `:help lualine.txt`
     opts = {
       options = {
@@ -193,7 +195,13 @@ require('lazy').setup({
   },
 
   -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+    }
+  },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
@@ -237,6 +245,10 @@ require('lazy').setup({
 
 -- Editorconfig integration
 vim.g.editorconfig = true
+
+-- Disable Netrw
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 -- Relative number
 vim.o.relativenumber = true
