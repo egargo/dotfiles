@@ -76,7 +76,7 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+  -- 'tpope/vim-sleuth',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -250,11 +250,18 @@ vim.g.editorconfig = true
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
 
+-- Use 4 space tab
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.noexpandtab = true
+vim.o.expandtab = true
+vim.o.smartindent = true
+
 -- Relative number
 vim.o.relativenumber = true
 vim.o.cursorline = true
 vim.o.ruler = true
-vim.o.colorcolumn = 80
 
 -- Set highlight on search
 vim.o.hlsearch = true
@@ -477,9 +484,16 @@ local servers = {
   bashls = {},
   cssls = {},
   eslint = {},
+  gopls = {
+    Go = {
+      workspace = { checkThirdParty = false },
+      telemetry = { enable = false },
+    }
+  },
   html = {},
   jsonls = {},
   marksman = {},
+  ocamllsp = {},
   pyright = {},
   rust_analyzer = {},
   taplo = {},

@@ -271,4 +271,4 @@ colors: *gruvbox
 key_bindings:
     - { key: NumpadAdd,         mods: Control,  action: IncreaseFontSize  }
     - { key: NumpadSubtract,    mods: Control,  action: DecreaseFontSize  }
-    - { key: NumpadMultiply,    mods: Control,  action: ResetFontSize     }
+    - { key: Key0,    mods: Control,  action: ResetFontSize     }
