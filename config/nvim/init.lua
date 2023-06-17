@@ -63,6 +63,8 @@ vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
 vim.opt.listchars:append "eol:↴"
 
+vim.opt.colorcolumn = "80"
+
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
 --
