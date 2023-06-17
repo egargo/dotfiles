@@ -58,6 +58,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.opt.swapfile = false
+vim.opt.backup = false
 
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
