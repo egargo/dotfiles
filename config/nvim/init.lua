@@ -197,6 +197,15 @@ require('lazy').setup({
     }
   },
 
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    --[[ keys = {{
+        '<leader>t', '<cmd>ToggleTerm size=40 dir=. direction=float<cr>', desc='Open a floating [t]erminal',
+      },
+    }, ]]
+  },
+
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
@@ -581,6 +590,18 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+require('toggleterm').setup({
+  size = 20,
+  open_mapping = [[<C-t>]],
+  hide_numbers = true,
+  direction = 'float',
+  close_on_exit = true,
+  shell = vim.o.shell,
+});
+
+
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
