@@ -132,6 +132,7 @@ RPROMPT='%*'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias hist="history"
 alias vi="nvim"
 alias vim="nvim"
 alias exot="exit"
