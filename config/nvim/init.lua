@@ -38,8 +38,8 @@ P.S. You can delete this when you're done too. It's your config now :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = ','
+vim.g.maplocalleader = ','
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -203,10 +203,6 @@ require('lazy').setup({
   {
     'akinsho/toggleterm.nvim',
     version = "*",
-    --[[ keys = {{
-        '<leader>t', '<cmd>ToggleTerm size=40 dir=. direction=float<cr>', desc='Open a floating [t]erminal',
-      },
-    }, ]]
   },
 
   -- Fuzzy Finder (files, lsp, etc)
@@ -596,7 +592,8 @@ cmp.setup {
 
 require('toggleterm').setup({
   size = 20,
-  open_mapping = [[<C-t>]],
+  desc = 'Open [t]erminal Open',
+  open_mapping = '<leader>t',
   hide_numbers = true,
   direction = 'float',
   close_on_exit = true,
