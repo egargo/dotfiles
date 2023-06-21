@@ -38,7 +38,7 @@ error_symbol = '[❯](bold red)'
 
 [directory]
 read_only = ' [🔒] '
-truncation_length = 100
+truncation_length = 1
 truncate_to_repo = true
 truncation_symbol = ''
 fish_style_pwd_dir_length = 1
