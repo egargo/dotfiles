@@ -38,8 +38,8 @@ P.S. You can delete this when you're done too. It's your config now :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = '  '
-vim.g.maplocalleader = '  '
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -125,8 +125,13 @@ require('lazy').setup({
 
   {
     -- Useful plugin to show you pending keybinds.
-    -- 'folke/which-key.nvim',
-    -- opts = {}
+    'folke/which-key.nvim',
+    opts = {
+      triggers_blacklist = {
+        i = { "<leader>", "<space>", " ", "", "j", "k", "l", "h" },
+        v = { "j", "k" },
+      }
+    }
   },
 
   {
@@ -198,7 +203,8 @@ require('lazy').setup({
       padding = true,
       sticky = true,
       toggler = {
-        line = '<C-_>',
+        -- line = '<C-_>',
+        line = 'gc',
         block = 'cb',
       },
     }
@@ -229,6 +235,10 @@ require('lazy').setup({
     cond = function()
       return vim.fn.executable 'make' == 1
     end,
+  },
+
+  {
+    'ThePrimeagen/harpoon',
   },
 
   {
@@ -353,10 +363,11 @@ require('telescope').setup {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
+require('telescope').load_extension('harpoon')
+
 -- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>.', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -371,6 +382,20 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+
+-- [[ Configure Harpoon ]]
+require("harpoon").setup({
+  menu = {
+    width = vim.api.nvim_win_get_width(0) - 4,
+  }
+})
+vim.keymap.set('n', '<leader>ha', require("harpoon.mark").add_file, { desc = 'Harpoon mark files to revisit later on' })
+vim.keymap.set('n', '<leader>hm', require("harpoon.ui").toggle_quick_menu, { desc = 'Harpoon toggle quick menu' })
+vim.keymap.set('n', '<leader>hn', require("harpoon.ui").nav_next, { desc = 'Harpoon navigate to next mark' })
+vim.keymap.set('n', '<leader>hp', require("harpoon.ui").nav_prev, { desc = 'Harpoon navigate to previous mark' })
+
+
+
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -464,8 +489,8 @@ local on_attach = function(_, bufnr)
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-  -- nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  nmap('<leader>.', vim.lsp.buf.definition, '[G]oto [D]efinition')
+  nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+  -- nmap('<leader>.', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
@@ -597,7 +622,7 @@ cmp.setup {
 require('toggleterm').setup({
   size = 20,
   desc = 'Open [t]erminal Open',
-  open_mapping = '<leader>t',
+  open_mapping = '<C-t>',
   hide_numbers = true,
   direction = 'float',
   close_on_exit = true,

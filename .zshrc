@@ -81,6 +81,7 @@ plugins=(
     git
     git-prompt
     shrink-path
+    vi-mode
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -112,6 +113,17 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 setopt HIST_IGNORE_SPACE
 
 setopt nullglob
+
+# Vi mode
+bindkey -v
+export KEYTIMEOUT=1
+zle -N vi-mode-exit-blocklist
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+ZSH_VI_MODE_SET_CURSOR=true
+ZSH_VI_MODE_CURSOR_NORMAL=2
+ZSH_VI_MODE_CURSOR_VISUAL=6
+ZSH_VI_MODE_CURSOR_INSERT=1
+ZSH_VI_MODE_CURSOR_OPPEND=0
 
 # Prompts.
 autoload -Uz vcs_info
