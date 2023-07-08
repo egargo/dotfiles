@@ -31,11 +31,6 @@ if command -v code; then
     cp -v config/Code/User/settings.json ~/.config/Code/User/settings.json 2>/dev/null
 fi
 
-mkdir -p ~/.node
-curl -sL install-node.vercel.app/lts | bash -s -- -y --prefix=$HOME/.node
-
-sudo hostnamectl set-hostname bee
-
 if command -v starship; then
     cp -v config/starship.toml ~/.config/starship.toml 2>/dev/null
 else
