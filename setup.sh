@@ -15,7 +15,7 @@ mkdir -pv ~/Projects/University
 # cp -v .config ~/.config
 cp fonts/*.ttf ~/.fonts/ 2>/dev/null
 
-cp -v local/share/flatpak/overrides/* ~/.local/share/flatpak/overrides/
+cp -vR local/share/flatpak/overrides/ ~/.local/share/flatpak/overrides/
 
 if command -v alacritty; then
     cp -v config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 2>/dev/null
