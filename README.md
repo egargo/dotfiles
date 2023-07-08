@@ -9,3 +9,17 @@
 * [Tmux](.tmux.conf)
 * [Zsh](./.zshrc)
 * ~~[visual Studio Code](./config/Code/User/settings.json)~~
+
+```
+# Update the `dotfiles` repository
+./update.sh
+
+# Update the remote `dotfiles` repository
+./push.sh
+
+# Setup
+./setup.sh
+
+# Setup Git
+./git.sh <email> "<Password>"
+```
