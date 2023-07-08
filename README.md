@@ -10,7 +10,7 @@
 * [Zsh](./.zshrc)
 * ~~[visual Studio Code](./config/Code/User/settings.json)~~
 
-```
+```bash
 # Update the `dotfiles` repository
 ./update.sh
 
