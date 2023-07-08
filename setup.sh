@@ -2,6 +2,7 @@
 
 
 # mkdir ~/.config
+mkdir -pv ~/.bee
 mkdir -pv ~/.config/alacritty
 mkdir -pv ~/.config/nvim
 mkdir -pv ~/.config/zsh
