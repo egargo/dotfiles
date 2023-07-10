@@ -17,4 +17,3 @@ git config --global user.name "$name"
 git config --global user.email "$email"
 
 echo "Add ~/.ssh/*.pub to your GitHub account and run:\n"ssh -T git@github.com""
-

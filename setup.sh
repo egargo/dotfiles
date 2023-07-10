@@ -2,44 +2,45 @@
 
 
 # mkdir ~/.config
-mkdir -pv ~/.bee
-mkdir -pv ~/.config/alacritty
-mkdir -pv ~/.config/nvim
-mkdir -pv ~/.config/zsh
-mkdir -pv ~/.fonts
-mkdir -pv ~/Projects/Personal
-mkdir -pv ~/Projects/GitHub
-mkdir -pv ~/Projects/University
+mkdir -p ~/.bee
+mkdir -p ~/.config/alacritty
+mkdir -p ~/.config/nvim
+mkdir -p ~/.config/zsh
+mkdir -p ~/.fonts
+mkdir -p ~/Projects/Personal
+mkdir -p ~/Projects/GitHub
+mkdir -p ~/Projects/University
 
+dconf load / < gnome/dconf-settings.ini 2>/dev/null
 
-# cp -v .config ~/.config
+# cp .config ~/.config
 cp fonts/*.ttf ~/.fonts/ 2>/dev/null
 
-cp -vR local/share/flatpak/overrides/ ~/.local/share/flatpak/
+cp -R local/share/flatpak/overrides/ ~/.local/share/flatpak/
 
 if command -v alacritty; then
-    cp -v config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 2>/dev/null
+    cp config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 2>/dev/null
 fi
 
 if command -v nvim; then
-    cp -vR config/nvim/* ~/.config/nvim 2>/dev/null
+    cp -R config/nvim/* ~/.config/nvim 2>/dev/null
 else
     echo "Install guide: https://github.com/neovim/neovim/wiki/Building-Neovim#quick-start"
 fi
 
 if command -v code; then
-    cp -v config/Code/User/settings.json ~/.config/Code/User/settings.json 2>/dev/null
+    cp config/Code/User/settings.json ~/.config/Code/User/settings.json 2>/dev/null
 fi
 
 if command -v starship; then
-    cp -v config/starship.toml ~/.config/starship.toml 2>/dev/null
+    cp config/starship.toml ~/.config/starship.toml 2>/dev/null
 else
     echo "curl -sS https://starship.rs/install.sh | sh"
 fi
 
-# cp -v . ~/
+# cp . ~/
 if command -v tmux; then
-    cp -v .tmux.conf ~/.tmux.conf 2>/dev/null
+    cp .tmux.conf ~/.tmux.conf 2>/dev/null
 fi
 
 rm -rf ~/Projects/GitHub/neofetch
@@ -54,7 +55,6 @@ if command -v zsh; then
     curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-    cp -v .zshrc ~/.zshrc 2>/dev/null
-    cp -v .zshenv ~/.zshenv 2>/dev/null
-    echo "Finished setting up ZSH"
+    cp .zshrc ~/.zshrc 2>/dev/null
+    cp .zshenv ~/.zshenv 2>/dev/null
 fi
