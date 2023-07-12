@@ -401,7 +401,7 @@ vim.keymap.set('n', '<leader>hp', require("harpoon.ui").nav_prev, { desc = 'Harp
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'lua', 'python', 'rust', 'ocaml', 'tsx', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'bash', 'c', 'cpp', 'dockerfile', 'javascript', 'lua', 'markdown', 'markdown_inline', 'python', 'rust', 'toml', 'tsx', 'typescript', 'yaml'},
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
@@ -524,16 +524,18 @@ local servers = {
   bashls = {},
   cssls = {},
   eslint = {},
-  gopls = {
-    Go = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    }
-  },
+  docker_compose_language_service = {},
+  dockerls = {},
+  -- gopls = {
+  --   Go = {
+  --     workspace = { checkThirdParty = false },
+  --     telemetry = { enable = false },
+  --   }
+  -- },
   html = {},
   jsonls = {},
   marksman = {},
-  ocamllsp = {},
+  -- ocamllsp = {},
   pyright = {},
   rust_analyzer = {},
   taplo = {},
