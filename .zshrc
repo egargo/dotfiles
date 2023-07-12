@@ -5,9 +5,6 @@ export PATH=$PATH:$HOME/.local/bin
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# export PATH=$HOME/.node/bin:$PATH
-export PATH=$HOME/.local/bin/bin:$PATH
-
 autoload -Uz compinit
 compinit -d ~/.config/zsh/.zcompdump
 
