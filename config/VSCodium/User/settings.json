@@ -1,0 +1,76 @@
+{
+  "telemetry.telemetryLevel": "off",
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorStyle": "line-thin",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "FiraCode Nerd Font",
+  "editor.fontSize": 12,
+  "editor.fontWeight": "normal",
+  "editor.lineHeight": 0,
+  "editor.lineNumbers": "relative",
+  "editor.links": true,
+  "editor.minimap.enabled": false,
+  "editor.mouseWheelZoom": true,
+  "editor.multiCursorModifier": "alt",
+  "editor.rulers": [
+    80
+  ],
+  "editor.showUnused": true,
+  "editor.detectIndentation": true,
+  "editor.renderWhitespace": "boundary",
+  "extensions.autoCheckUpdates": true,
+  "extensions.autoUpdate": true,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.hotExit": "onExitAndWindowClose",
+  "terminal.integrated.fontSize": 16,
+  "vim.vimrc.enable": true,
+  "window.closeWhenEmpty": false,
+  "window.restoreFullscreen": false,
+  "window.restoreWindows": "folders",
+  "window.title": "${dirty} ${activeEditorShort} | ${appName}",
+  "window.titleSeparator": " | ",
+  "workbench.colorCustomizations": {
+    "editorLineNumber.foreground": "#808080",
+    "editorLineNumber.activeForeground": "#ffffff",
+    "editor.renderLineHighlight": "line"
+  },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "editor.guides.indentation": true,
+  "editor.guides.highlightActiveIndentation": true,
+  "editor.insertSpaces": true,
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 4,
+  "javascript.suggest.completeFunctionCalls": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "html.completion.attributeDefaultValue": "singlequotes",
+  "svelte.enable-ts-plugin": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.defaultFormatter": "EditorConfig.EditorConfig",
+  "haskell.manageHLS": "GHCup",
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "terminal.integrated.fontFamily": "JetBrains Mono Regular",
+  "window.zoomKey": null,
+  "window.menuBarVisibility": "always",
+  "workbench.colorTheme": "Default Dark+",
+  "window.zoomLevel": -3,
+  "keybindings.remove": {
+    "workbench.action.zoomIn": {
+      "key": null,
+    },
+    "workbench.action.zoomOut": {
+      "key": null,
+    }
+  },
+  "vim.vimrc.path": "~/Projects/Personal/dotfiles/.config/nvim/legacy.vim"
+}
