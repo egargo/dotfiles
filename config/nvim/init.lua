@@ -431,7 +431,7 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 
 -- Relative number
--- vim.o.relativenumber = true
+vim.o.relativenumber = true
 vim.o.cursorline = true
 vim.o.ruler = true
 
@@ -841,6 +841,7 @@ require('conform').setup {
   formatters_by_ft = {
     bash = { 'shfmt' },
     css = { 'stylelint' },
+    ts = { 'deno_fmt' },
     go = { 'gofmt', 'goimports' },
     javascript = { 'prettier' },
     lua = { 'stylua' },
