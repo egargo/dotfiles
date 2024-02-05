@@ -159,7 +159,8 @@ setup_dnf_packages() {
 }
 
 setup_apt() {
-    sudo apt-get install alacritty tmux zsh git wget ninja-build gettext cmake unzip curl virt-manager
+    sudo apt-get install alacritty tmux zsh git wget ninja-build gettext cmake unzip curl
+    # virt-manager
 }
 
 setup_neovim() {
