@@ -30,7 +30,7 @@ font:
   normal:
     family: JetBrainsMono Nerd Font
     style: Light
-  size: 8
+  size: 7
   offset:
     x: 0
     y: 0
@@ -266,6 +266,7 @@ schemes:
         magenta: '#AD7FA8'
         cyan: '#34E2E2'
         white: '#EEEEEC'
+
     tokyonight: &tokyonight
       primary:
         background: '#1a1b26'
@@ -288,7 +289,6 @@ schemes:
         magenta: '#bb9af7'
         cyan: '#0db9d7'
         white: '#acb0d0'
-
 
     catppuccin-macchiato: &catppuccin-macchiato
       primary:

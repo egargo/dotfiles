@@ -178,20 +178,20 @@ require('lazy').setup({
     end,
   },
 
-  -- {
-  --   'folke/noice.nvim',
-  --   event = 'VeryLazy',
-  --   opts = {},
-  --   dependencies = {
-  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-  --     'MunifTanjim/nui.nvim',
-  --     'nvim-treesitter/nvim-treesitter',
-  --     -- OPTIONAL:
-  --     --   `nvim-notify` is only needed, if you want to use the notification view.
-  --     --   If not available, we use `mini` as the fallback
-  --     'rcarriga/nvim-notify',
-  --   },
-  -- },
+  {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    opts = {},
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      'MunifTanjim/nui.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      -- 'rcarriga/nvim-notify',
+    },
+  },
 
   {
     -- Autocompletion
@@ -207,6 +207,10 @@ require('lazy').setup({
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
     },
+  },
+
+  {
+    'leafOfTree/vim-svelte-plugin'
   },
 
   {
@@ -255,10 +259,12 @@ require('lazy').setup({
 
   {
     'ellisonleao/gruvbox.nvim',
+    -- 'folke/tokyonight.nvim',
+    lazy = false,
     priority = 1000,
-    config = true,
     config = function()
       vim.cmd.colorscheme = 'gruvbox'
+      --   vim.cmd.colorscheme = 'tokyonight'
     end,
   },
 
@@ -318,6 +324,7 @@ require('lazy').setup({
       options = {
         icons_enabled = true,
         theme = 'gruvbox',
+        -- theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
         'filename',
@@ -431,7 +438,7 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 
 -- Relative number
-vim.o.relativenumber = true
+vim.o.relativenumber = false
 vim.o.cursorline = true
 vim.o.ruler = true
 
@@ -453,7 +460,8 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.breakindent = true
 
 vim.o.background = "dark"
-vim.cmd.colorscheme = 'gruvbox'
+-- vim.cmd [[colorscheme tokyonight-night]]
+vim.cmd [[colorscheme gruvbox]]
 
 -- Save undo history
 vim.o.undofile = true
@@ -551,6 +559,56 @@ vim.keymap.set('n', '<leader>hp', require('harpoon.ui').nav_prev, { desc = 'Harp
 -- },
 -- }
 
+-- require("tokyonight").setup({
+--   style = "dark",
+--   light_style = "day",
+--   transparent = false,
+--   terminal_colors = true,
+--   styles = {
+--     comments = { italic = true },
+--     keywords = { italic = true },
+--     functions = {},
+--     variables = {},
+--     sidebars = "dark",
+--     floats = "dark",
+--   },
+--   sidebars = { "qf", "help" },
+--   day_brightness = 0.3,
+--   hide_inactive_statusline = false,
+--   dim_inactive = false,
+--   lualine_bold = false,
+--   on_colors = function(colors) end,
+--   on_highlights = function(highlights, colors) end,
+-- })
+
+
+require("gruvbox").setup({
+  terminal_colors = true, -- add neovim terminal colors
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = {
+    strings = true,
+    emphasis = true,
+    comments = true,
+    operators = false,
+    folds = true,
+  },
+  strikethrough = true,
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_intend_guides = false,
+  inverse = true,    -- invert background for search, diffs, statuslines and errors
+  contrast = "soft", -- can be "hard", "soft" or empty string
+  palette_overrides = {},
+  overrides = {},
+  dim_inactive = false,
+  transparent_mode = false,
+})
+vim.cmd("colorscheme gruvbox")
+
+
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
@@ -559,7 +617,7 @@ require('nvim-treesitter.configs').setup {
     'bash',
     'c',
     'cpp',
-    -- 'dockerfile',
+    'dockerfile',
     -- 'elixir',
     -- 'haskell',
     'javascript',
@@ -718,7 +776,7 @@ local servers = {
   pyright = {},
   rust_analyzer = {},
   -- taplo = {},
-  tsserver = {},
+  -- tsserver = {},
   yamlls = {},
   lua_ls = {
     Lua = {
@@ -841,9 +899,11 @@ require('conform').setup {
   formatters_by_ft = {
     bash = { 'shfmt' },
     css = { 'stylelint' },
-    ts = { 'deno_fmt' },
+    ts = { 'deno_fmt', 'prettier' },
     go = { 'gofmt', 'goimports' },
     javascript = { 'prettier' },
+    jsx = { 'prettier' },
+    typescript = { 'prettier' },
     lua = { 'stylua' },
     markdown = { 'markdownlint' },
     python = { 'isort', 'black' },
@@ -861,44 +921,21 @@ require('conform').setup {
 
 
 -- Noice
--- require('lualine').setup {
---   sections = {
---     lualine_x = {
---       {
---         require('noice').api.statusline.mode.get,
---         cond = require('noice').api.statusline.mode.has,
---         color = { fg = '#ff9e64' },
---       },
---     },
---   },
--- }
-
-
-require("gruvbox").setup({
-  terminal_colors = true, -- add neovim terminal colors
-  undercurl = true,
-  underline = true,
-  bold = true,
-  italic = {
-    strings = true,
-    emphasis = true,
-    comments = true,
-    operators = false,
-    folds = true,
+require('lualine').setup {
+  options = {
+    -- theme = 'tokyonight'
+    theme = 'gruvbox'
   },
-  strikethrough = true,
-  invert_selection = false,
-  invert_signs = false,
-  invert_tabline = false,
-  invert_intend_guides = false,
-  inverse = true,    -- invert background for search, diffs, statuslines and errors
-  contrast = "soft", -- can be "hard", "soft" or empty string
-  palette_overrides = {},
-  overrides = {},
-  dim_inactive = false,
-  transparent_mode = false,
-})
-vim.cmd("colorscheme gruvbox")
+  sections = {
+    lualine_x = {
+      {
+        require('noice').api.statusline.mode.get,
+        cond = require('noice').api.statusline.mode.has,
+        color = { fg = '#ff9e64' },
+      },
+    },
+  },
+}
 
 -- require('bufferline').setup {}
 

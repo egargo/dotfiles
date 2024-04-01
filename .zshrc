@@ -143,9 +143,12 @@ RPROMPT='%*'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias db="distrobox"
+alias d="distrobox enter dev"
+alias b="distrobox enter dev"
+alias e="exit"
 alias gs=""
 alias hist="history"
+alias neofetch="~/Projects/GitHub/neofetch/./neofetch"
 alias vi="nvim"
 alias vim="nvim"
 alias code="codium"

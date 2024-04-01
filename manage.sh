@@ -23,6 +23,7 @@ Commands:
     Debian/Ubuntu:
         ufw             Configure UFW (Debian/Ubuntu)
         apt             Install APT packages
+        brave           Install Brave Browser
         neovim          Build and Install Neovim
 
     Fedora:
@@ -36,6 +37,7 @@ Commands:
 
     config          Setup the $HOME configuration
     dconf-pop       Setup Pop!_OS (COSMIC) configuration
+    flatpak         Setup Flatpak configuration
     git             Setup git configuration
 
     pull            Pull from remote repository
@@ -79,6 +81,7 @@ setup_update() {
     cp -v ~/.zshenv . 2>/dev/null
     cp -v ~/.zshrc . 2>/dev/null
     cp -v ~/.bashrc . 2>/dev/null
+    cp -v ~/.var/app/io.gitlab.zehkira.Monophony/config/monophony/playlists.json . 2>/dev/null
 }
 
 setup_status() {
@@ -163,6 +166,14 @@ setup_apt() {
     # virt-manager
 }
 
+setup_brave() {
+    sudo apt install curl
+    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+    sudo apt update
+    sudo apt install brave-browser
+}
+
 setup_neovim() {
     git clone https://github.com/neovim/neovim ~/Projects/GitHub/neovim
     cd ~/Projects/GitHub/neovim
@@ -179,11 +190,16 @@ setup_hostname() {
     sudo hostnamectl set-hostname bee
 }
 
+setup_flatpak() {
+    cp -v config/mpv/mpv.conf ~/.var/app/io.mpv.Mpv/config/mpv
+    cp -R local/share/flatpak/overrides/ ~/.local/share/flatpak/
+    cp -v playlists.json $HOME/.var/app/io.gitlab.zehkira.Monophony/config/monophony/playlists.json
+}
+
 setup_config() {
     cp -R config/alacritty/* ~/.config/alacritty/ 2>/dev/null
     cp -R config/nvim/* ~/.config/nvim 2>/dev/null
     cp -R fonts/*.ttf ~/.fonts/ 2>/dev/null
-    cp -R local/share/flatpak/overrides/ ~/.local/share/flatpak/
 
     cp config/starship.toml ~/.config/starship.toml 2>/dev/null
     cp .tmux.conf ~/.tmux.conf 2>/dev/null
@@ -243,6 +259,9 @@ main() {
     "apt")
         setup_apt
         ;;
+    "brave")
+        setup_brave
+        ;;
     "bun")
         setup_bun
         ;;
@@ -260,6 +279,9 @@ main() {
         ;;
     "dnf-packages")
         setup_dnf_packages
+        ;;
+    "flatpak")
+        setup_flatpak
         ;;
     "git")
         setup_git "$ARG1" "$ARG2"
