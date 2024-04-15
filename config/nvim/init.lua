@@ -373,6 +373,10 @@ require('lazy').setup({
     },
   },
 
+  {
+    'mg979/vim-visual-multi'
+  },
+
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
   -- requirements installed.
