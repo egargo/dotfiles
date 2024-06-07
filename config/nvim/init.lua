@@ -171,7 +171,8 @@ require('lazy').setup({
 
   {
     'saecki/crates.nvim',
-    tag = 'v0.4.0',
+    event = { "BufRead Cargo.toml" },
+    tag = 'stable',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('crates').setup()
@@ -250,23 +251,21 @@ require('lazy').setup({
 
   -- Themes
   {
-    'morhetz/gruvbox',
-  },
-
-  {
-    'arcticicestudio/nord-vim'
-  },
-
-  {
-    'ellisonleao/gruvbox.nvim',
-    -- 'folke/tokyonight.nvim',
+    -- 'arcticicestudio/nord-vim',
+    'folke/tokyonight.nvim',
+    -- 'morhetz/gruvbox',
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme = 'gruvbox'
-      --   vim.cmd.colorscheme = 'tokyonight'
+      -- vim.cmd.colorscheme = 'gruvbox'
+      vim.cmd.colorscheme = 'tokyonight'
     end,
   },
+
+  -- {
+  --   'ellisonleao/gruvbox.nvim',
+  --   -- 'folke/tokyonight.nvim',
+  -- },
 
   -- {
   --     'akinsho/bufferline.nvim',
@@ -323,8 +322,8 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'gruvbox',
-        -- theme = 'tokyonight',
+        -- theme = 'gruvbox',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
         'filename',
@@ -464,8 +463,8 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.breakindent = true
 
 vim.o.background = "dark"
--- vim.cmd [[colorscheme tokyonight-night]]
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme tokyonight-night]]
+-- vim.cmd [[colorscheme gruvbox]]
 
 -- Save undo history
 vim.o.undofile = true
@@ -586,31 +585,65 @@ vim.keymap.set('n', '<leader>hp', require('harpoon.ui').nav_prev, { desc = 'Harp
 -- })
 
 
-require("gruvbox").setup({
-  terminal_colors = true, -- add neovim terminal colors
-  undercurl = true,
-  underline = true,
-  bold = true,
-  italic = {
-    strings = true,
-    emphasis = true,
-    comments = true,
-    operators = false,
-    folds = true,
+
+require("tokyonight").setup({
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  style = "night",        -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+  light_style = "day",    -- The theme is used when the background is set to light
+  transparent = false,    -- Enable this to disable setting the background color
+  terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+  styles = {
+    comments = { italic = true },
+    keywords = { italic = true },
+    functions = {},
+    variables = {},
+    sidebars = "dark",              -- style for sidebars, see below
+    floats = "dark",                -- style for floating windows
   },
-  strikethrough = true,
-  invert_selection = false,
-  invert_signs = false,
-  invert_tabline = false,
-  invert_intend_guides = false,
-  inverse = true,    -- invert background for search, diffs, statuslines and errors
-  contrast = "soft", -- can be "hard", "soft" or empty string
-  palette_overrides = {},
-  overrides = {},
-  dim_inactive = false,
-  transparent_mode = false,
+  sidebars = { "qf", "help" },      -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+  day_brightness = 0.3,             -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+  hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
+  dim_inactive = false,             -- dims inactive windows
+  lualine_bold = false,             -- When `true`, section headers in the lualine theme will be bold
+
+  --- You can override specific color groups to use other groups or a hex color
+  --- function will be called with a ColorScheme table
+  ---@param colors ColorScheme
+  on_colors = function(colors) end,
+
+  --- You can override specific highlights to use other groups or a hex color
+  --- function will be called with a Highlights and ColorScheme table
+  ---@param highlights Highlights
+  ---@param colors ColorScheme
+  on_highlights = function(highlights, colors) end,
 })
-vim.cmd("colorscheme gruvbox")
+
+-- require("gruvbox").setup({
+--   terminal_colors = true, -- add neovim terminal colors
+--   undercurl = true,
+--   underline = true,
+--   bold = true,
+--   italic = {
+--     strings = true,
+--     emphasis = true,
+--     comments = true,
+--     operators = false,
+--     folds = true,
+--   },
+--   strikethrough = true,
+--   invert_selection = false,
+--   invert_signs = false,
+--   invert_tabline = false,
+--   invert_intend_guides = false,
+--   inverse = true,    -- invert background for search, diffs, statuslines and errors
+--   contrast = "soft", -- can be "hard", "soft" or empty string
+--   palette_overrides = {},
+--   overrides = {},
+--   dim_inactive = false,
+--   transparent_mode = false,
+-- })
+-- vim.cmd("colorscheme gruvbox")
 
 
 -- [[ Configure Treesitter ]]
@@ -622,10 +655,10 @@ require('nvim-treesitter.configs').setup {
     'c',
     'cpp',
     'dockerfile',
-    -- 'elixir',
+    'elixir',
     -- 'haskell',
     'javascript',
-    -- 'kotlin',
+    'kotlin',
     'lua',
     'markdown',
     'markdown_inline',
@@ -769,11 +802,11 @@ local servers = {
   eslint = {},
   -- docker_compose_language_service = {},
   -- dockerls = {},
-  -- elixirls = {},
+  elixirls = {},
   -- hls = {},
   html = {},
   jsonls = {},
-  -- kotlin_language_server = {},
+  kotlin_language_server = {},
   marksman = {},
   -- ocamllsp = {},
   perlnavigator = {},
@@ -859,6 +892,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = "crates" },
   },
 }
 
@@ -955,6 +989,170 @@ require('nvim-tree').setup {
     dotfiles = true,
   },
 }
+require("crates").setup {
+  smart_insert = true,
+  insert_closing_quote = true,
+  avoid_prerelease = true,
+  autoload = true,
+  autoupdate = true,
+  autoupdate_throttle = 250,
+  loading_indicator = true,
+  date_format = "%Y-%m-%d",
+  thousands_separator = ".",
+  notification_title = "Crates",
+  curl_args = { "-sL", "--retry", "1" },
+  max_parallel_requests = 80,
+  open_programs = { "xdg-open", "open" },
+  disable_invalid_feature_diagnostic = false,
+  text = {
+    loading = "   Loading",
+    version = "   %s",
+    prerelease = "   %s",
+    yanked = "   %s",
+    nomatch = "   No match",
+    upgrade = "   %s",
+    error = "   Error fetching crate",
+  },
+  highlight = {
+    loading = "CratesNvimLoading",
+    version = "CratesNvimVersion",
+    prerelease = "CratesNvimPreRelease",
+    yanked = "CratesNvimYanked",
+    nomatch = "CratesNvimNoMatch",
+    upgrade = "CratesNvimUpgrade",
+    error = "CratesNvimError",
+  },
+  popup = {
+    autofocus = false,
+    hide_on_select = false,
+    copy_register = '"',
+    style = "minimal",
+    border = "none",
+    show_version_date = false,
+    show_dependency_version = true,
+    max_height = 30,
+    min_width = 20,
+    padding = 1,
+    text = {
+      title = " %s",
+      pill_left = "",
+      pill_right = "",
+      description = "%s",
+      created_label = " created        ",
+      created = "%s",
+      updated_label = " updated        ",
+      updated = "%s",
+      downloads_label = " downloads      ",
+      downloads = "%s",
+      homepage_label = " homepage       ",
+      homepage = "%s",
+      repository_label = " repository     ",
+      repository = "%s",
+      documentation_label = " documentation  ",
+      documentation = "%s",
+      crates_io_label = " crates.io      ",
+      crates_io = "%s",
+      categories_label = " categories     ",
+      keywords_label = " keywords       ",
+      version = "  %s",
+      prerelease = " %s",
+      yanked = " %s",
+      version_date = "  %s",
+      feature = "  %s",
+      enabled = " %s",
+      transitive = " %s",
+      normal_dependencies_title = " Dependencies",
+      build_dependencies_title = " Build dependencies",
+      dev_dependencies_title = " Dev dependencies",
+      dependency = "  %s",
+      optional = " %s",
+      dependency_version = "  %s",
+      loading = "  ",
+    },
+    highlight = {
+      title = "CratesNvimPopupTitle",
+      pill_text = "CratesNvimPopupPillText",
+      pill_border = "CratesNvimPopupPillBorder",
+      description = "CratesNvimPopupDescription",
+      created_label = "CratesNvimPopupLabel",
+      created = "CratesNvimPopupValue",
+      updated_label = "CratesNvimPopupLabel",
+      updated = "CratesNvimPopupValue",
+      downloads_label = "CratesNvimPopupLabel",
+      downloads = "CratesNvimPopupValue",
+      homepage_label = "CratesNvimPopupLabel",
+      homepage = "CratesNvimPopupUrl",
+      repository_label = "CratesNvimPopupLabel",
+      repository = "CratesNvimPopupUrl",
+      documentation_label = "CratesNvimPopupLabel",
+      documentation = "CratesNvimPopupUrl",
+      crates_io_label = "CratesNvimPopupLabel",
+      crates_io = "CratesNvimPopupUrl",
+      categories_label = "CratesNvimPopupLabel",
+      keywords_label = "CratesNvimPopupLabel",
+      version = "CratesNvimPopupVersion",
+      prerelease = "CratesNvimPopupPreRelease",
+      yanked = "CratesNvimPopupYanked",
+      version_date = "CratesNvimPopupVersionDate",
+      feature = "CratesNvimPopupFeature",
+      enabled = "CratesNvimPopupEnabled",
+      transitive = "CratesNvimPopupTransitive",
+      normal_dependencies_title = "CratesNvimPopupNormalDependenciesTitle",
+      build_dependencies_title = "CratesNvimPopupBuildDependenciesTitle",
+      dev_dependencies_title = "CratesNvimPopupDevDependenciesTitle",
+      dependency = "CratesNvimPopupDependency",
+      optional = "CratesNvimPopupOptional",
+      dependency_version = "CratesNvimPopupDependencyVersion",
+      loading = "CratesNvimPopupLoading",
+    },
+    keys = {
+      hide = { "q", "<esc>" },
+      open_url = { "<cr>" },
+      select = { "<cr>" },
+      select_alt = { "s" },
+      toggle_feature = { "<cr>" },
+      copy_value = { "yy" },
+      goto_item = { "gd", "K", "<C-LeftMouse>" },
+      jump_forward = { "<c-i>" },
+      jump_back = { "<c-o>", "<C-RightMouse>" },
+    },
+  },
+  src = {
+    insert_closing_quote = true,
+    text = {
+      prerelease = "  pre-release ",
+      yanked = "  yanked ",
+    },
+    coq = {
+      enabled = false,
+      name = "Crates",
+    },
+  },
+  null_ls = {
+    enabled = false,
+    name = "Crates",
+  },
+  on_attach = function(bufnr) end,
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -- The line beneath this is called `modeline`. See `:help modeline`

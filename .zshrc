@@ -144,6 +144,8 @@ RPROMPT='%*'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias d="distrobox enter dev"
+alias dev-start="distrobox enter dev"
+alias dev-stop="distrobox stop dev"
 alias b="distrobox enter dev"
 alias e="exit"
 alias gs=""
@@ -187,3 +189,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 [[ ! -r /home/clint/.opam/opam-init/init.zsh ]] || source /home/clint/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 [ -f "/home/clint/.ghcup/env" ] && source "/home/clint/.ghcup/env" # ghcup-env
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

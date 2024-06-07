@@ -8,3 +8,6 @@ export PATH=$PATH:$HOME/.local/zig
 export PATH=$PATH:$HOME/.local/kerl
 export PATH=$PATH:$HOME/.local/opam
 export PATH=$PATH:$HOME/go/bin
+
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"

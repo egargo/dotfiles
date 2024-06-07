@@ -28,9 +28,20 @@ scrolling:
 
 font:
   normal:
-    family: JetBrainsMono Nerd Font
-    style: Light
-  size: 7
+    family: Iosevka Nerd Font
+    # family: JetBrainsMono Nerd Font
+    style: Regular
+  bold:
+    family: Iosevka Nerd Font
+    # family: JetBrainsMono Nerd Font
+    style: Bold
+  italic:
+    family: Iosevka Nerd Font
+    # family: JetBrainsMono Nerd Font
+    style: Italic
+    
+  # size: 7.5
+  size: 8
   offset:
     x: 0
     y: 0
@@ -560,7 +571,7 @@ schemes:
         color: '0x222222'
 
 
-colors: *gruvbox-material
+colors: *tokyonight
 
 
 key_bindings:
@@ -573,4 +584,5 @@ key_bindings:
   - key: Key0
     mods: Control
     action: ResetFontSize
+  - { key: F11, action: ToggleFullscreen }
 
