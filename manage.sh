@@ -161,10 +161,11 @@ setup_dnf_packages() {
     sudo dnf install alacritty tmux zsh git && sudo dnf groupinstall 'C Development Tools and Libraries'
 }
 
-# setup_apt() {
-#     sudo apt-get install alacritty tmux zsh git wget ninja-build gettext cmake unzip curl
-#     # virt-manager
-# }
+setup_apt() {
+    sudo apt install alacritty zsh
+    # sudo apt-get install alacritty tmux zsh git wget ninja-build gettext cmake unzip curl
+    # virt-manager
+}
 
 setup_brave() {
     sudo apt install curl
