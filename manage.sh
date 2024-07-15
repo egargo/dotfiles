@@ -70,6 +70,15 @@ setup_init() {
     git remote set-url origin git@github.com:egargo/dotfiles.git
 }
 
+setup_init_ext() {
+    mkdir -p Projects/GitHub
+    mkdir -p Projects/Personal
+    mkdir -p Projects/Work
+    mkdir -p Torrents/Films
+    mkdir -p Torrents/ISO
+    mkdir -p Torrents/TV
+}
+
 setup_update() {
     cp -vR ~/.config/alacritty/* config/alacritty/ 2>/dev/null
     cp -v ~/.config/Code/User/settings.json config/Code/User/ 2>/dev/null
