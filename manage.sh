@@ -18,6 +18,7 @@ Commands:
         bun             Install Bun
         go              Install Go
         distrobox       Install Distrobox
+        sdkman          Install SDKMAN!
         starship        Install Starship
 
     Debian/Ubuntu:
@@ -153,6 +154,10 @@ setup_go() {
     rm ~/.local/*.gz
 }
 
+setup_sdkman() {
+    curl -s https://get.sdkman.io | bash
+}
+
 setup_distrobox() {
     curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix ~/.local/distrobox
 }
@@ -172,7 +177,7 @@ setup_dnf_packages() {
 
 setup_apt() {
     sudo apt install alacritty zsh
-    # sudo apt-get install alacritty tmux zsh git wget ninja-build gettext cmake unzip curl
+    sudo apt-get install alacritty tmux zsh git wget ninja-build gettext cmake unzip curl
     # virt-manager
 }
 
@@ -203,7 +208,6 @@ setup_hostname() {
 setup_flatpak() {
     cp -v config/mpv/mpv.conf ~/.var/app/io.mpv.Mpv/config/mpv
     cp -R local/share/flatpak/overrides/ ~/.local/share/flatpak/
-    cp -v playlists.json $HOME/.var/app/io.gitlab.zehkira.Monophony/config/monophony/playlists.json
 }
 
 setup_config() {
@@ -322,6 +326,9 @@ main() {
         ;;
     "rust")
         setup_rust
+        ;;
+    "sdkman")
+        setup_sdkman
         ;;
     "starship")
         setup_starship
