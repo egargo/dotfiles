@@ -67,6 +67,7 @@ setup_init() {
     mkdir -p ~/Projects/Torrents/TV
     mkdir -p ~/Projects/GitHub
     mkdir -p ~/Projects/University
+    mkdir -p ~/AppImages
 
     git remote set-url origin git@github.com:egargo/dotfiles.git
 }
@@ -160,6 +161,10 @@ setup_sdkman() {
 
 setup_distrobox() {
     curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix ~/.local/distrobox
+}
+
+setup_appimage() {
+    cp -v appimage/viber.desktop ~/.local/share/applications
 }
 
 setup_starship() {
