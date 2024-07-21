@@ -4,7 +4,6 @@
 
 * [Alacritty](config/alacritty/alacritty.yml)
 * [mpv](config/mpv/mpv.conf)
-* [Monophony Playlist](playlists.json)
 * [Neovim](config/nvim/)
 * [Starship](config/starship.toml)
 * [Tmux](.tmux.conf)
