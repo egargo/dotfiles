@@ -66,7 +66,7 @@ setup_init() {
     mkdir -p ~/Projects/Torrents/Films
     mkdir -p ~/Projects/Torrents/TV
     mkdir -p ~/Projects/GitHub
-    mkdir -p ~/Projects/University
+    mkdir -p ~/Projects/Work
     mkdir -p ~/AppImages
 
     git remote set-url origin git@github.com:egargo/dotfiles.git
