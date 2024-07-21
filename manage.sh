@@ -172,8 +172,8 @@ setup_dnf_packages() {
 }
 
 setup_apt() {
-    sudo apt install alacritty zsh
-    sudo apt-get install alacritty tmux zsh git wget ninja-build gettext cmake unzip curl
+    sudo apt install alacritty tmux zsh
+    # sudo apt-get install alacritty tmux zsh git wget ninja-build gettext cmake unzip curl
     # virt-manager
 }
 
