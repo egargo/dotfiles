@@ -54,31 +54,22 @@ EOF
 }
 
 setup_init() {
-    mkdir -p ~/.bee
+    # mkdir -p ~/.bee
     mkdir -p ~/.config/alacritty
     mkdir -p ~/.config/nvim
     mkdir -p ~/.config/zsh
     mkdir -p ~/.fonts
     mkdir -p ~/.local/node
     mkdir -p ~/.ssh
-    mkdir -p ~/Projects/Personal
-    mkdir -p ~/Projects/Torrents/ISO
-    mkdir -p ~/Projects/Torrents/Films
-    mkdir -p ~/Projects/Torrents/TV
-    mkdir -p ~/Projects/GitHub
-    mkdir -p ~/Projects/Work
-    mkdir -p ~/AppImages
+    # mkdir -p ~/Projects/Personal
+    # mkdir -p ~/Projects/Torrents/ISO
+    # mkdir -p ~/Projects/Torrents/Films
+    # mkdir -p ~/Projects/Torrents/TV
+    # mkdir -p ~/Projects/GitHub
+    # mkdir -p ~/Projects/Work
+    # mkdir -p ~/AppImages
 
-    git remote set-url origin git@github.com:egargo/dotfiles.git
-}
-
-setup_init_ext() {
-    mkdir -p Projects/GitHub
-    mkdir -p Projects/Personal
-    mkdir -p Projects/Work
-    mkdir -p Torrents/Films
-    mkdir -p Torrents/ISO
-    mkdir -p Torrents/TV
+    # git remote set-url origin git@github.com:egargo/dotfiles.git
 }
 
 setup_update() {
