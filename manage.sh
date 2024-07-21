@@ -100,7 +100,7 @@ setup_status() {
 }
 
 setup_push() {
-    git add ~/Projects/Personal/dotfiles/
+    git add .
     git commit -S -m "Update: $(date)"
     git push origin master
 }
@@ -195,11 +195,16 @@ setup_brave() {
 }
 
 setup_neovim() {
-    git clone https://github.com/neovim/neovim ~/Projects/GitHub/neovim
-    cd ~/Projects/GitHub/neovim
-    git checkout stable
-    make CMAKE_BUILD_TYPE=RelWithDebInfo
-    sudo make install
+    # git clone https://github.com/neovim/neovim ~/Projects/GitHub/neovim
+    # cd ~/Projects/GitHub/neovim
+    # git checkout stable
+    # make CMAKE_BUILD_TYPE=RelWithDebInfo
+    # sudo make install
+
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+    sudo rm -rf /opt/nvim
+    sudo tar -C /opt -xzf nvim-linux64.tar.gz
+    rm nvim-linux64.tar.gz
 }
 
 setup_zsh() {
@@ -223,8 +228,8 @@ setup_config() {
     cp config/starship.toml ~/.config/starship.toml 2>/dev/null
     cp .tmux.conf ~/.tmux.conf 2>/dev/null
 
-    rm -rf ~/Projects/GitHub/neofetch
-    git clone https://github.com/dylanaraps/neofetch.git ~/Projects/GitHub/neofetch
+    # rm -rf ~/Projects/GitHub/neofetch
+    # git clone https://github.com/dylanaraps/neofetch.git ~/Projects/GitHub/neofetch
 
     rm -rf ~/.oh-my-zsh
     curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash
@@ -233,9 +238,9 @@ setup_config() {
     cp .zshrc ~/.zshrc 2>/dev/null
     cp .zshenv ~/.zshenv 2>/dev/null
 
-    if command -v code; then
-        cp config/Code/User/settings.json ~/.config/Code/User/settings.json 2>/dev/null
-    fi
+    # if command -v code; then
+    #     cp config/Code/User/settings.json ~/.config/Code/User/settings.json 2>/dev/null
+    # fi
 }
 
 setup_dconf_pop() {
