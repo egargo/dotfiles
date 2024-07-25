@@ -25,6 +25,7 @@ Commands:
         ufw             Configure UFW (Debian/Ubuntu)
         apt             Install APT packages
         brave           Install Brave Browser
+        openvpn         Install OpenVPN
         neovim          Build and Install Neovim
 
     Fedora:
@@ -177,6 +178,14 @@ setup_apt() {
     # virt-manager
 }
 
+setup_openvpn() {
+    sudo mkdir -p /etc/apt/keyrings && curl -fsSL https://packages.openvpn.net/packages-repo.gpg | sudo tee /etc/apt/keyrings/openvpn.asc
+    DISTRO=$(lsb_release -c | awk '{print $2}')
+    echo "deb [signed-by=/etc/apt/keyrings/openvpn.asc arch=amd64] https://packages.openvpn.net/openvpn3/debian $DISTRO main" | sudo tee /etc/apt/sources.list.d/openvpn-packages.list
+    sudo apt update
+    sudo apt install openvpn3
+}
+
 setup_brave() {
     sudo apt install curl
     sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
@@ -315,6 +324,9 @@ main() {
         ;;
     "node")
         setup_node
+        ;;
+    "openvpn")
+        setup_openvpn
         ;;
     "power")
         power
