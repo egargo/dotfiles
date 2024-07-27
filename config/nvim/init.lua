@@ -29,7 +29,7 @@ vim.opt.timeoutlen = 300
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", eol = "↴" }
 vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
@@ -87,32 +87,45 @@ vim.opt.rtp:prepend(lazypath)
 
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
-    "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
     {
         "folke/which-key.nvim",
-        event = "VimEnter", -- Sets the loading event to 'VimEnter'
-        opts = {
-            triggers_blacklist = {
-                i = { "<leader>", "<space>", " ", "", "j", "k", "l", "h" },
-                v = { "j", "k" },
+        -- event = "VimEnter", -- Sets the loading event to 'VimEnter'
+        event = "VeryLazy",
+        keys = {
+            {
+                "<leader>?",
+                function()
+                    require("which-key").show({ global = false })
+                end,
+                desc = "Buffer Local Keymaps (which-key)",
             },
         },
-        config = function() -- This is the function that runs, AFTER loading
-            require("which-key").setup()
-            require("which-key").add({
-                { "<leader>c", name = "[C]ode", desc = "which_key_ignore" },
-                { "<leader>d", name = "[D]ocument", desc = "which_key_ignore" },
-                { "<leader>r", name = "[R]ename", desc = "which_key_ignore" },
-                { "<leader>s", name = "[S]earch", desc = "which_key_ignore" },
-                { "<leader>w", name = "[W]orkspace", desc = "which_key_ignore" },
-                { "<leader>t", name = "[T]oggle", desc = "which_key_ignore" },
-                { "<leader>h", name = "Git [H]unk", desc = "which_key_ignore" },
-            })
-            -- visual mode
-            require("which-key").add({
-                { "<leader>h", desc = "Git [H]unk" },
-            }, { mode = "v" })
-        end,
+        dependencies = {
+            -- { "nvim-tree/nvim-web-devicons" },
+            { "echasnovski/mini.nvim", version = false },
+        },
+        -- opts = {
+        --     triggers_blacklist = {
+        --         i = { "<leader>", "<space>", " ", "", "j", "k", "l", "h" },
+        --         v = { "j", "k" },
+        --     },
+        -- },
+        -- config = function() -- This is the function that runs, AFTER loading
+        --     require("which-key").setup()
+        --     require("which-key").add({
+        --         { "<leader>c", name = "[C]ode", desc = "which_key_ignore" },
+        --         { "<leader>d", name = "[D]ocument", desc = "which_key_ignore" },
+        --         { "<leader>r", name = "[R]ename", desc = "which_key_ignore" },
+        --         { "<leader>s", name = "[S]earch", desc = "which_key_ignore" },
+        --         { "<leader>w", name = "[W]orkspace", desc = "which_key_ignore" },
+        --         { "<leader>t", name = "[T]oggle", desc = "which_key_ignore" },
+        --         { "<leader>h", name = "Git [H]unk", desc = "which_key_ignore" },
+        --     })
+        --     -- visual mode
+        --     require("which-key").add({
+        --         { "<leader>h", desc = "Git [H]unk" },
+        --     }, { mode = "v" })
+        -- end,
     },
 
     {
@@ -138,6 +151,7 @@ require("lazy").setup({
 
             -- Useful for getting pretty icons, but requires a Nerd Font.
             { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+            { "echasnovski/mini.nvim", version = false, enabled = vim.g.have_nerd_font },
         },
         config = function()
             require("telescope").setup({
