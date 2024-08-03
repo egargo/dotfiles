@@ -76,7 +76,7 @@ setup_init() {
 setup_update() {
     cp -vR ~/.config/alacritty/* config/alacritty/ 2>/dev/null
     cp -v ~/.config/Code/User/settings.json config/Code/User/ 2>/dev/null
-    cp -v ~/.config/nvim/* config/nvim/ 2>/dev/null
+    cp -vR ~/.config/nvim/* config/nvim/ 2>/dev/null
     cp -v ~/.config/starship.toml config/ 2>/dev/null
     cp -vR ~/.fonts/*.ttf fonts/ 2>/dev/null
     cp -vR ~/.local/share/flatpak/overrides/* local/share/flatpak/overrides/ 2>/dev/null
@@ -84,7 +84,7 @@ setup_update() {
     cp -v ~/.zshenv . 2>/dev/null
     cp -v ~/.zshrc . 2>/dev/null
     cp -v ~/.bashrc . 2>/dev/null
-    cp -v ~/.var/app/io.gitlab.zehkira.Monophony/config/monophony/playlists.json . 2>/dev/null
+    # cp -v ~/.var/app/io.gitlab.zehkira.Monophony/config/monophony/playlists.json . 2>/dev/null
 }
 
 setup_status() {
