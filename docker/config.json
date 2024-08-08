@@ -1,5 +1,5 @@
 {
 	"pruneFilters": [
-		"label=dev"
+		"label==dev"
 	]
 }
