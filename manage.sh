@@ -30,7 +30,9 @@ Commands:
 
     Fedora:
         dnf             Setup DNF configuration
-        dnf             Install DNF packages
+        dnf-codecs      Install Multimedia codecs
+        dnf-nvidia      Install Nvidia
+        dnf-packages    Install DNF packages
 
     Zsh and hostname:
         zsh             Setup ZSH
@@ -163,14 +165,31 @@ setup_starship() {
     curl -sS https://starship.rs/install.sh | sh
 }
 
+
+# START :: DNF
+
 setup_dnf() {
     echo "fastestmirror=True" | sudo tee -a /etc/dnf/dnf.conf
     echo "max_parallel_downloads=12" | sudo tee -a /etc/dnf/dnf.conf
 }
 
-setup_dnf_packages() {
-    sudo dnf install alacritty tmux zsh git && sudo dnf groupinstall 'C Development Tools and Libraries'
+setup_dnf_nvidia() {
+    sudo dnf install akmod-nvidia
 }
+
+setup_dnf_codecs() {
+    sudo dnf group install Multimedia
+    sudo dnf config-manager --set-enabled fedora-cisco-openh264
+    sudo dnf install gstreamer1-plugin-openh264 mozilla-openh264
+}
+
+setup_dnf_packages() {
+    sudo dnf install alacritty neovim tmux zsh
+    # sudo dnf groupinstall 'C Development Tools and Libraries'
+}
+
+# END :: DNF
+
 
 setup_apt() {
     sudo apt install alacritty tmux zsh
@@ -212,7 +231,8 @@ setup_zsh() {
 }
 
 setup_hostname() {
-    sudo hostnamectl set-hostname bee
+    # sudo hostnamectl set-hostname bee
+    sudo hostnamectl set-hostname "$ARG1"
 }
 
 setup_flatpak() {
@@ -300,6 +320,12 @@ main() {
         ;;
     "dnf")
         setup_dnf
+        ;;
+    "dnf-codecs")
+        setup_dnf_codecs
+        ;;
+    "dnf-nvidia")
+        setup_dnf_nvidia
         ;;
     "dnf-packages")
         setup_dnf_packages
