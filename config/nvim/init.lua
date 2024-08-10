@@ -356,7 +356,9 @@ require("lazy").setup({
                 docker_compose_language_service = {},
                 dockerls = {},
                 html = {},
-                jdtls = {},
+                jdtls = {
+                    --
+                },
                 jsonls = {},
                 lua_ls = {
                     settings = {
