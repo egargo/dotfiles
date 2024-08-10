@@ -1,638 +1,111 @@
-draw_bold_text_with_bright_colors = true
 live_config_reload = true
-
-[shell]
-program = "/bin/zsh"
-args = [ "-l", "-c", "tmux attach || tmux" ]
-
-[env]
-TERM = "xterm-256color"
-
-[window]
-title = "Alacritty"
-dynamic_title = true
-
-  [window.class]
-  instance = "Alacritty"
-  general = "Alacritty"
-
-  [window.padding]
-  x = 6
-  y = 6
-
-[scrolling]
-history = 100_000
-
-[font]
-size = 8
-
-  [font.normal]
-  family = "JetBrainsMono Nerd Font"
-  style = "Light"
-
-  [font.offset]
-  x = 0
-  y = 0
-
-  [font.glyph_offset]
-  x = 0
-  y = 0
 
 [bell]
 duration = 0
 
-[[mouse_bindings]]
-mouse = "Middle"
-action = "PasteSelection"
+[colors]
+draw_bold_text_with_bright_colors = true
 
-[mouse]
-hide_when_typing = true
+[colors.bright]
+black = "#444b6a"
+blue = "#7da6ff"
+cyan = "#0db9d7"
+green = "#b9f27c"
+magenta = "#bb9af7"
+red = "#ff7a93"
+white = "#acb0d0"
+yellow = "#ff9e64"
 
-[selection]
-semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+[colors.normal]
+black = "#32344a"
+blue = "#7aa2f7"
+cyan = "#449dab"
+green = "#9ece6a"
+magenta = "#ad8ee6"
+red = "#f7768e"
+white = "#787c99"
+yellow = "#e0af68"
+
+[colors.primary]
+background = "#1a1b26"
+foreground = "#a9b1d6"
 
 [cursor]
 unfocused_hollow = true
 
-  [cursor.style]
-  blinking = "On"
+[cursor.style]
+blinking = "On"
 
-[schemes.gruvbox.primary]
-background = "0x282828"
-foreground = "0xebdbb2"
+[env]
+TERM = "xterm-256color"
 
-[schemes.gruvbox.normal]
-black = "0x282828"
-red = "0xcc241d"
-green = "0x98971a"
-yellow = "0xd79921"
-blue = "0x458588"
-magenta = "0xb16286"
-cyan = "0x689d6a"
-white = "0xa89984"
+[font]
+size = 8
 
-[schemes.gruvbox.bright]
-black = "0x928374"
-red = "0xfb4934"
-green = "0xb8bb26"
-yellow = "0xfabd2f"
-blue = "0x83a598"
-magenta = "0xd3869b"
-cyan = "0x8ec07c"
-white = "0xebdbb2"
+[font.bold]
+family = "Iosevka Nerd Font"
+style = "Bold"
 
-[schemes.gruvbox-material.primary]
-background = "#282828"
-foreground = "#dfbf8e"
+[font.glyph_offset]
+x = 0
+y = 0
 
-[schemes.gruvbox-material.normal]
-black = "#665c54"
-red = "#ea6962"
-green = "#a9b665"
-yellow = "#e78a4e"
-blue = "#7daea3"
-magenta = "#d3869b"
-cyan = "#89b482"
-white = "#dfbf8e"
+[font.italic]
+family = "Iosevka Nerd Font"
+style = "Italic"
 
-[schemes.gruvbox-material.bright]
-black = "#928374"
-red = "#ea6962"
-green = "#a9b665"
-yellow = "#e3a84e"
-blue = "#7daea3"
-magenta = "#d3869b"
-cyan = "#89b482"
-white = "#dfbf8e"
+[font.normal]
+family = "Iosevka Nerd Font"
+style = "Regular"
 
-[schemes.nord.primary]
-background = "#2e3440"
-foreground = "#d8dee9"
-dim_foreground = "#a5abb6"
+[font.offset]
+x = 0
+y = 0
 
-[schemes.nord.cursor]
-text = "#2e3440"
-cursor = "#d8dee9"
-
-[schemes.nord.vi_mode_cursor]
-text = "#2e3440"
-cursor = "#d8dee9"
-
-[schemes.nord.selection]
-text = "CellForeground"
-background = "#4c566a"
-
-[schemes.nord.search.matches]
-foreground = "CellBackground"
-background = "#88c0d0"
-
-[schemes.nord.search."colors.footer_bar"]
-background = "#434c5e"
-foreground = "#d8dee9"
-
-[schemes.nord.normal]
-black = "#3b4252"
-red = "#bf616a"
-green = "#a3be8c"
-yellow = "#ebcb8b"
-blue = "#81a1c1"
-magenta = "#b48ead"
-cyan = "#88c0d0"
-white = "#e5e9f0"
-
-[schemes.nord.bright]
-black = "#4c566a"
-red = "#bf616a"
-green = "#a3be8c"
-yellow = "#ebcb8b"
-blue = "#81a1c1"
-magenta = "#b48ead"
-cyan = "#8fbcbb"
-white = "#eceff4"
-
-[schemes.nord.dim]
-black = "#373e4d"
-red = "#94545d"
-green = "#809575"
-yellow = "#b29e75"
-blue = "#68809a"
-magenta = "#8c738c"
-cyan = "#6d96a5"
-white = "#aeb3bb"
-
-[schemes.dracula.primary]
-background = "#282a36"
-foreground = "#f8f8f2"
-bright_foreground = "#ffffff"
-
-[schemes.dracula.cursor]
-text = "CellBackground"
-cursor = "CellForeground"
-
-[schemes.dracula.vi_mode_cursor]
-text = "CellBackground"
-cursor = "CellForeground"
-
-[schemes.dracula.search.matches]
-foreground = "#44475a"
-background = "#50fa7b"
-
-[schemes.dracula.search.focused_match]
-foreground = "#44475a"
-background = "#ffb86c"
-
-[schemes.dracula.search."colors.footer_bar"]
-background = "#282a36"
-foreground = "#f8f8f2"
-
-[schemes.dracula.hints.start]
-foreground = "#282a36"
-background = "#f1fa8c"
-
-[schemes.dracula.hints.end]
-foreground = "#f1fa8c"
-background = "#282a36"
-
-[schemes.dracula.line_indicator]
-foreground = "None"
-background = "None"
-
-[schemes.dracula.selection]
-text = "CellForeground"
-background = "#44475a"
-
-[schemes.dracula.normal]
-black = "#21222c"
-red = "#ff5555"
-green = "#50fa7b"
-yellow = "#f1fa8c"
-blue = "#bd93f9"
-magenta = "#ff79c6"
-cyan = "#8be9fd"
-white = "#f8f8f2"
-
-[schemes.dracula.bright]
-black = "#6272a4"
-red = "#ff6e6e"
-green = "#69ff94"
-yellow = "#ffffa5"
-blue = "#d6acff"
-magenta = "#ff92df"
-cyan = "#a4ffff"
-white = "#ffffff"
-
-[schemes.dracula.juno.primary]
-background = "#151821"
-foreground = "#c4c5c7"
-cursor = "#c4c5c7"
-
-[schemes.dracula.juno.normal]
-black = "#151821"
-red = "#6e7aaa"
-green = "#7b82aa"
-yellow = "#8887aa"
-blue = "#a288a4"
-magenta = "#aa6c7b"
-cyan = "#b95055"
-white = "#c4c5c7"
-
-[schemes.dracula.juno.bright]
-black = "#4f5158"
-red = "#6e7aaa"
-green = "#7b82aa"
-yellow = "#8887aa"
-blue = "#a288a4"
-magenta = "#aa6c7b"
-cyan = "#b95055"
-white = "#c4c5c7"
-
-[schemes.dracula.pop.primary]
-background = "#333333"
-foreground = "#F2F2F2"
-
-[schemes.dracula.pop.normal]
-black = "#333333"
-red = "#CC0000"
-green = "#4E9A06"
-yellow = "#C4A000"
-blue = "#3465A4"
-magenta = "#75507B"
-cyan = "#06989A"
-white = "#D3D7CF"
-
-[schemes.dracula.pop.bright]
-black = "#88807C"
-red = "#F15D22"
-green = "#73C48F"
-yellow = "#FFCE51"
-blue = "#48B9C7"
-magenta = "#AD7FA8"
-cyan = "#34E2E2"
-white = "#EEEEEC"
-
-[schemes.dracula.tokyonight.primary]
-background = "#1a1b26"
-foreground = "#a9b1d6"
-
-[schemes.dracula.tokyonight.normal]
-black = "#32344a"
-red = "#f7768e"
-green = "#9ece6a"
-yellow = "#e0af68"
-blue = "#7aa2f7"
-magenta = "#ad8ee6"
-cyan = "#449dab"
-white = "#787c99"
-
-[schemes.dracula.tokyonight.bright]
-black = "#444b6a"
-red = "#ff7a93"
-green = "#b9f27c"
-yellow = "#ff9e64"
-blue = "#7da6ff"
-magenta = "#bb9af7"
-cyan = "#0db9d7"
-white = "#acb0d0"
-
-[schemes.dracula.catppuccin-macchiato.primary]
-background = "#24273A"
-foreground = "#CAD3F5"
-dim_foreground = "#CAD3F5"
-bright_foreground = "#CAD3F5"
-
-[schemes.dracula.catppuccin-macchiato.cursor]
-text = "#24273A"
-cursor = "#F4DBD6"
-
-[schemes.dracula.catppuccin-macchiato.vi_mode_cursor]
-text = "#24273A"
-cursor = "#B7BDF8"
-
-[schemes.dracula.catppuccin-macchiato.search.matches]
-foreground = "#24273A"
-background = "#A5ADCB"
-
-[schemes.dracula.catppuccin-macchiato.search.focused_match]
-foreground = "#24273A"
-background = "#A6DA95"
-
-[schemes.dracula.catppuccin-macchiato.search.footer_bar]
-foreground = "#24273A"
-background = "#A5ADCB"
-
-[schemes.dracula.catppuccin-macchiato.hints.start]
-foreground = "#24273A"
-background = "#EED49F"
-
-[schemes.dracula.catppuccin-macchiato.hints.end]
-foreground = "#24273A"
-background = "#A5ADCB"
-
-[schemes.dracula.catppuccin-macchiato.selection]
-text = "#24273A"
-background = "#F4DBD6"
-
-[schemes.dracula.catppuccin-macchiato.normal]
-black = "#494D64"
-red = "#ED8796"
-green = "#A6DA95"
-yellow = "#EED49F"
-blue = "#8AADF4"
-magenta = "#F5BDE6"
-cyan = "#8BD5CA"
-white = "#B8C0E0"
-
-[schemes.dracula.catppuccin-macchiato.bright]
-black = "#5B6078"
-red = "#ED8796"
-green = "#A6DA95"
-yellow = "#EED49F"
-blue = "#8AADF4"
-magenta = "#F5BDE6"
-cyan = "#8BD5CA"
-white = "#A5ADCB"
-
-[schemes.dracula.catppuccin-macchiato.dim]
-black = "#494D64"
-red = "#ED8796"
-green = "#A6DA95"
-yellow = "#EED49F"
-blue = "#8AADF4"
-magenta = "#F5BDE6"
-cyan = "#8BD5CA"
-white = "#B8C0E0"
-
-[[schemes.dracula.catppuccin-macchiato.indexed_colors]]
-index = 16
-color = "#F5A97F"
-
-[[schemes.dracula.catppuccin-macchiato.indexed_colors]]
-index = 17
-color = "#F4DBD6"
-
-[schemes.dracula.catppuccin-mocha.primary]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
-dim_foreground = "#CDD6F4"
-bright_foreground = "#CDD6F4"
-
-[schemes.dracula.catppuccin-mocha.cursor]
-text = "#1E1E2E"
-cursor = "#F5E0DC"
-
-[schemes.dracula.catppuccin-mocha.vi_mode_cursor]
-text = "#1E1E2E"
-cursor = "#B4BEFE"
-
-[schemes.dracula.catppuccin-mocha.search.matches]
-foreground = "#1E1E2E"
-background = "#A6ADC8"
-
-[schemes.dracula.catppuccin-mocha.search.focused_match]
-foreground = "#1E1E2E"
-background = "#A6E3A1"
-
-[schemes.dracula.catppuccin-mocha.search.footer_bar]
-foreground = "#1E1E2E"
-background = "#A6ADC8"
-
-[schemes.dracula.catppuccin-mocha.hints.start]
-foreground = "#1E1E2E"
-background = "#F9E2AF"
-
-[schemes.dracula.catppuccin-mocha.hints.end]
-foreground = "#1E1E2E"
-background = "#A6ADC8"
-
-[schemes.dracula.catppuccin-mocha.selection]
-text = "#1E1E2E"
-background = "#F5E0DC"
-
-[schemes.dracula.catppuccin-mocha.normal]
-black = "#45475A"
-red = "#F38BA8"
-green = "#A6E3A1"
-yellow = "#F9E2AF"
-blue = "#89B4FA"
-magenta = "#F5C2E7"
-cyan = "#94E2D5"
-white = "#BAC2DE"
-
-[schemes.dracula.catppuccin-mocha.bright]
-black = "#585B70"
-red = "#F38BA8"
-green = "#A6E3A1"
-yellow = "#F9E2AF"
-blue = "#89B4FA"
-magenta = "#F5C2E7"
-cyan = "#94E2D5"
-white = "#A6ADC8"
-
-[schemes.dracula.catppuccin-mocha.dim]
-black = "#45475A"
-red = "#F38BA8"
-green = "#A6E3A1"
-yellow = "#F9E2AF"
-blue = "#89B4FA"
-magenta = "#F5C2E7"
-cyan = "#94E2D5"
-white = "#BAC2DE"
-
-[[schemes.dracula.catppuccin-mocha.indexed_colors]]
-index = 16
-color = "#FAB387"
-
-[[schemes.dracula.catppuccin-mocha.indexed_colors]]
-index = 17
-color = "#F5E0DC"
-
-[schemes.dracula.rosepine.primary]
-background = "0x191724"
-foreground = "0xe0def4"
-
-[schemes.dracula.rosepine.cursor]
-text = "0xe0def4"
-cursor = "0x524f67"
-
-[schemes.dracula.rosepine.vi_mode_cursor]
-text = "0xe0def4"
-cursor = "0x524f67"
-
-[schemes.dracula.rosepine.line_indicator]
-foreground = "None"
-background = "None"
-
-[schemes.dracula.rosepine.selection]
-text = "0xe0def4"
-background = "0x403d52"
-
-[schemes.dracula.rosepine.normal]
-black = "0x26233a"
-red = "0xeb6f92"
-green = "0x31748f"
-yellow = "0xf6c177"
-blue = "0x9ccfd8"
-magenta = "0xc4a7e7"
-cyan = "0xebbcba"
-white = "0xe0def4"
-
-[schemes.dracula.rosepine.bright]
-black = "0x6e6a86"
-red = "0xeb6f92"
-green = "0x31748f"
-yellow = "0xf6c177"
-blue = "0x9ccfd8"
-magenta = "0xc4a7e7"
-cyan = "0xebbcba"
-white = "0xe0def4"
-
-[schemes.dracula.rosepine.hints.start]
-foreground = "#908caa"
-background = "#1f1d2e"
-
-[schemes.dracula.rosepine.hints.end]
-foreground = "#6e6a86"
-background = "#1f1d2e"
-
-[schemes.dracula.rosepine-moon.primary]
-background = "0x232136"
-foreground = "0xe0def4"
-
-[schemes.dracula.rosepine-moon.cursor]
-text = "0xe0def4"
-cursor = "0x56526e"
-
-[schemes.dracula.rosepine-moon.vi_mode_cursor]
-text = "0xe0def4"
-cursor = "0x56526e"
-
-[schemes.dracula.rosepine-moon.line_indicator]
-foreground = "None"
-background = "None"
-
-[schemes.dracula.rosepine-moon.selection]
-text = "0xe0def4"
-background = "0x44415a"
-
-[schemes.dracula.rosepine-moon.normal]
-black = "0x393552"
-red = "0xeb6f92"
-green = "0x3e8fb0"
-yellow = "0xf6c177"
-blue = "0x9ccfd8"
-magenta = "0xc4a7e7"
-cyan = "0xea9a97"
-white = "0xe0def4"
-
-[schemes.dracula.rosepine-moon.bright]
-black = "0x6e6a86"
-red = "0xeb6f92"
-green = "0x3e8fb0"
-yellow = "0xf6c177"
-blue = "0x9ccfd8"
-magenta = "0xc4a7e7"
-cyan = "0xea9a97"
-white = "0xe0def4"
-
-[schemes.dracula.rosepine-moon.hints.start]
-foreground = "#908caa"
-background = "#2a273f"
-
-[schemes.dracula.rosepine-moon.hints.end]
-foreground = "#6e6a86"
-background = "#2a273f"
-
-[schemes.dracula.kanagawa.primary]
-background = "0x1f1f28"
-foreground = "0xdcd7ba"
-
-[schemes.dracula.kanagawa.normal]
-black = "#090618"
-red = "#c34043"
-green = "0x76946a"
-yellow = "0xc0a36e"
-blue = "0x7e9cd8"
-magenta = "0x957fb8"
-cyan = "0x6a9589"
-white = "0xc8c093"
-
-[schemes.dracula.kanagawa.bright]
-black = "0x727169"
-red = "0xe82424"
-green = "0x98bb6c"
-yellow = "0xe6c384"
-blue = "0x7fb4ca"
-magenta = "0x938aa9"
-cyan = "0x7aa89f"
-white = "0xdcd7ba"
-
-[schemes.dracula.kanagawa.selection]
-background = "0x2d4f67"
-foreground = "0xc8c093"
-
-[schemes.miasma.primary]
-background = "#222222"
-foreground = "#c2c2b0"
-
-[schemes.miasma.normal]
-black = "#222222"
-red = "#685742"
-green = "#5f875f"
-yellow = "#b36d43"
-blue = "#78824b"
-magenta = "#bb7744"
-cyan = "#c9a554"
-white = "#d7c483"
-
-[schemes.miasma.bright]
-black = "#666666"
-red = "#685742"
-green = "#5f875f"
-yellow = "#b36d43"
-blue = "#78824b"
-magenta = "#bb7744"
-cyan = "#c9a554"
-white = "#d7c483"
-
-[[schemes.miasma.indexed_colors]]
-index = 16
-color = "0x222222"
-
-[colors.primary]
-background = "#282828"
-foreground = "#dfbf8e"
-
-[colors.normal]
-black = "#665c54"
-red = "#ea6962"
-green = "#a9b665"
-yellow = "#e78a4e"
-blue = "#7daea3"
-magenta = "#d3869b"
-cyan = "#89b482"
-white = "#dfbf8e"
-
-[colors.bright]
-black = "#928374"
-red = "#ea6962"
-green = "#a9b665"
-yellow = "#e3a84e"
-blue = "#7daea3"
-magenta = "#d3869b"
-cyan = "#89b482"
-white = "#dfbf8e"
-
-[[key_bindings]]
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
 key = "NumpadAdd"
 mods = "Control"
-action = "IncreaseFontSize"
 
-[[key_bindings]]
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
 key = "NumpadSubtract"
 mods = "Control"
-action = "DecreaseFontSize"
 
-[[key_bindings]]
+[[keyboard.bindings]]
+action = "ResetFontSize"
 key = "Key0"
 mods = "Control"
-action = "ResetFontSize"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F11"
+
+[mouse]
+hide_when_typing = true
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[scrolling]
+history = 100000
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+[shell]
+args = ["-l", "-c", "tmux attach || tmux"]
+program = "/bin/zsh"
+
+[window]
+dynamic_title = true
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 6
+y = 6
