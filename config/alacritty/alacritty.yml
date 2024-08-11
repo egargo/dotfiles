@@ -19,7 +19,7 @@ window:
   padding:
     x: 6
     y: 6
-  startup_mode: Windowed
+  # startup_mode: Windowed
   resize_increments: true
 
 
@@ -40,7 +40,7 @@ font:
     family: Iosevka Nerd Font
     # family: JetBrainsMono Nerd Font
     style: Italic
-    
+
   # size: 7.5
   size: 8
   offset:
