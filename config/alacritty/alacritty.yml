@@ -19,7 +19,8 @@ window:
   padding:
     x: 6
     y: 6
-  # opacity: 0.95
+  startup_mode: Windowed
+  resize_increments: true
 
 
 scrolling:
