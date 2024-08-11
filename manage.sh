@@ -264,7 +264,7 @@ setup_config() {
 }
 
 setup_dconf_pop() {
-    dconf load / <dconf/dconf-settings.ini 2>/dev/null
+    dconf load / <dconf/dconf-pop.ini 2>/dev/null
 }
 
 setup_zsh_post() {
