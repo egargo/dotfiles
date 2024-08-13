@@ -24,6 +24,7 @@ Commands:
     Debian/Ubuntu:
         ufw             Configure UFW (Debian/Ubuntu)
         apt             Install APT packages
+        fzf             Install fzf
         brave           Install Brave Browser
         openvpn         Install OpenVPN
         neovim          Build and Install Neovim
@@ -263,6 +264,11 @@ setup_config() {
     # fi
 }
 
+setup_fzf() {
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+}
+
 setup_dconf_pop() {
     dconf load / <dconf/dconf-pop.ini 2>/dev/null
 }
@@ -332,6 +338,9 @@ main() {
         ;;
     "flatpak")
         setup_flatpak
+        ;;
+    "fzf")
+        setup_fzf
         ;;
     "git")
         setup_git "$ARG1" "$ARG2"

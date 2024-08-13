@@ -143,24 +143,22 @@ RPROMPT='%*'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias d="distrobox enter dev"
-alias dev-start="distrobox enter dev"
-alias dev-stop="distrobox stop dev"
+alias neofetch="/mnt/JAJS600M2TB/Projects/GitHub/neofetch/./neofetch"
+alias d="distrobox enter egargo.dev"
+alias dev-start="distrobox enter egargo.dev"
+alias dev-stop="distrobox stop egargo.dev"
 alias b="distrobox enter dev"
 alias e="exit"
 alias gs=""
 alias hist="history"
-alias neofetch="~/Projects/GitHub/neofetch/./neofetch"
 alias vi="nvim"
 alias vim="nvim"
-alias code="codium"
 alias exot="exit"
 alias exut="exit"
 alias lua="lua5.4"
 alias ts-node="npx ts-node"
 alias pip="python3 -m pip"
 alias pip3="python3 -m pip"
-# alias "cargo run"="git restore . && cargo run"
 
 # pnpm
 export PNPM_HOME="/home/clint/.local/share/pnpm"
@@ -170,9 +168,7 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# Exercism
-export PATH=~/bin:$PATH
-
+# Haskell
 #[ -f "/home/clint/.ghcup/env" ] && source "/home/clint/.ghcup/env" # ghcup-env
 
 # Starship prompt
@@ -194,4 +190,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# Neovim
 export PATH="$PATH:/opt/nvim-linux64/bin"
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_COMPLETION_TRIGGER='?'
