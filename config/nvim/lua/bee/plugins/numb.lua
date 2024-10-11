@@ -1,3 +1,3 @@
 return {
-	"nacro90/numb.nvim",
+    "nacro90/numb.nvim",
 }
