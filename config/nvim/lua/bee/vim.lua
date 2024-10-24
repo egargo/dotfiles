@@ -4,22 +4,57 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 vim.g.editorconfig = true
 
--- vim.o.*
-vim.o.splitright = true
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.softtabstop = 4
-vim.o.smartindent = true
-vim.o.relativenumber = false
-vim.o.cursorline = true
-vim.o.ruler = true
-
 -- vim.opt.*
+-- vim.opt.splitright = true
+-- vim.opt.tabstop = 4
+-- vim.opt.shiftwidth = 4
+-- vim.opt.softtabstop = 4
+-- vim.opt.expandtab = true
+-- vim.opt.smartindent = true
+-- vim.opt.relativenumber = false
+-- vim.opt.cursorline = true
+-- vim.opt.ruler = true
+-- vim.opt.autoindent = true
+-- vim.opt.number = true
+-- vim.opt.mouse = "a"
+-- vim.opt.showmode = false
+-- vim.opt.clipboard = "unnamedplus"
+-- vim.opt.breakindent = true
+-- vim.opt.undofile = true
+-- vim.opt.ignorecase = true
+-- vim.opt.smartcase = true
+-- vim.opt.signcolumn = "yes"
+-- vim.opt.updatetime = 250
+-- vim.opt.timeoutlen = 300
+-- vim.opt.splitright = true
+-- vim.opt.splitbelow = true
+-- vim.opt.list = true
+
+vim.opt.expandtab = false
+vim.opt.copyindent = true
+vim.opt.preserveindent = true
+vim.opt.softtabstop = 0
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.splitright = true
+vim.opt.ttyfast = true
+vim.opt.wrap = true
+
+vim.opt.autoread = true
+vim.opt.encoding = "utf-8"
+vim.opt.fileformat = "unix"
+
+vim.opt.relativenumber = false
+vim.opt.cursorline = true
+vim.opt.ruler = true
+-- vim.opt.autoindent = true
 vim.opt.number = true
 vim.opt.mouse = "a"
-vim.opt.showmode = false
+vim.opt.showmode = true
+vim.opt.showmatch = true
+vim.opt.errorbells = false
+vim.opt.visualbell = false
 vim.opt.clipboard = "unnamedplus"
-vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -29,11 +64,12 @@ vim.opt.timeoutlen = 300
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.list = true
+
 vim.opt.listchars = {
-    tab = "» ",
-    trail = "·",
-    nbsp = "␣",
-    -- eol = "↴"
+	tab = "» ",
+	trail = "·",
+	nbsp = "␣",
+	-- eol = "↴"
 }
 vim.opt.inccommand = "split"
 vim.opt.cursorline = true
@@ -70,9 +106,9 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 
 -- vim.api.*
 vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Highlight when yanking (copying) text",
-    group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-    callback = function()
-        vim.highlight.on_yank()
-    end,
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })

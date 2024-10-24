@@ -7,6 +7,8 @@ return {
             "c",
             "cpp",
             "diff",
+            "git_rebase",
+            "gitcommit",
             "groovy",
             "html",
             "java",
