@@ -13,6 +13,9 @@ env:
 window:
   title: Alacritty
   dynamic_title: true
+  dimensions:
+    columns: 256
+    lines: 64
   class:
     instance: Alacritty
     general: Alacritty
@@ -39,7 +42,7 @@ font:
     family: Iosevka Nerd Font
     # family: JetBrainsMono Nerd Font
     style: Italic
-  # size: 7.5
+  # size: 7
   size: 8
   offset:
     x: 0

@@ -2,6 +2,9 @@
 '$schema' = 'https://starship.rs/config-schema.json'
 
 add_newline = false
+# command_timeout = 60000
+[package]
+disabled = true
 
 [battery]
 full_symbol = '🔋 '
@@ -19,7 +22,7 @@ symbol = "C "
 detect_extensions = ['c', 'h']
 detect_files = []
 detect_folders = []
-commands = [ [ 'cc', '--version' ], [ 'gcc', '--version' ], [ 'clang', '--version' ] ]
+commands = [['cc', '--version'], ['gcc', '--version'], ['clang', '--version']]
 style = 'bold 149'
 disabled = false
 
@@ -82,11 +85,23 @@ behind = '⇣'
 diverged = '⇕'
 up_to_date = ''
 untracked = '?'
-stashed = '$'
+stashed = '*'
 modified = '!'
 staged = '+'
 renamed = '»'
 deleted = '✘'
+
+# conflicted = ' 🏳 '
+# ahead = ' 🏎💨 '
+# behind = ' 😰 '
+# diverged = ' 😵 '
+# up_to_date = ' ✓ '
+# untracked = ' 🤷 '
+# stashed = ' 📦 '
+# modified = ' 📝 '
+# staged = ' [++\($count\)](green) '
+# renamed = ' 👅 '
+# deleted = ' 🗑 '
 style = 'bold yellow'
 ignore_submodules = false
 disabled = false
@@ -120,7 +135,15 @@ style = 'blue bold'
 pyenv_version_name = false
 python_binary = ['python', 'python3', 'python2']
 detect_extensions = ['py']
-detect_files = ['.python-version', 'Pipfile', '__init__.py', 'pyproject.toml', 'requirements.txt', 'setup.py', 'tox.ini']
+detect_files = [
+	'.python-version',
+	'Pipfile',
+	'__init__.py',
+	'pyproject.toml',
+	'requirements.txt',
+	'setup.py',
+	'tox.ini',
+]
 detect_folders = []
 disabled = false
 
@@ -138,7 +161,7 @@ disabled = false
 style = 'blue bold'
 # symbol = '👩‍💻 '
 symbol = "🧙 "
-disabled = false
+disabled = true
 
 [username]
 style_user = 'blue bold'

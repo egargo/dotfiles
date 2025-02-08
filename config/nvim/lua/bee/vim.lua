@@ -30,24 +30,30 @@ vim.g.editorconfig = true
 -- vim.opt.splitbelow = true
 -- vim.opt.list = true
 
-vim.opt.expandtab = false
-vim.opt.copyindent = true
-vim.opt.preserveindent = true
-vim.opt.softtabstop = 0
+vim.g.virtcolumn_char = "▕" -- char to display the line
+vim.g.virtcolumn_priority = 10 -- priority of extmark
+
+vim.opt.colorcolumn = "80"
+vim.opt.autoindent = false
+vim.opt.smartindent = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.expandtab = false
+vim.opt.softtabstop = 4
+vim.opt.copyindent = false
+vim.opt.preserveindent = false
 vim.opt.splitright = true
 vim.opt.ttyfast = true
 vim.opt.wrap = true
-
 vim.opt.autoread = true
 vim.opt.encoding = "utf-8"
 vim.opt.fileformat = "unix"
 
+vim.opt.spell = true
+
 vim.opt.relativenumber = false
 vim.opt.cursorline = true
 vim.opt.ruler = true
--- vim.opt.autoindent = true
 vim.opt.number = true
 vim.opt.mouse = "a"
 vim.opt.showmode = true
@@ -64,7 +70,6 @@ vim.opt.timeoutlen = 300
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.list = true
-
 vim.opt.listchars = {
 	tab = "» ",
 	trail = "·",
