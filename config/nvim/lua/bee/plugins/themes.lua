@@ -2,7 +2,7 @@ return {
 	{
 		-- "folke/tokyonight.nvim",
 		-- "catppuccin/nvim",
-		-- "ellisonleao/gruvbox.nvim",
+		"ellisonleao/gruvbox.nvim",
         "rose-pine/neovim",
 		priority = 1000,
 		init = function()
