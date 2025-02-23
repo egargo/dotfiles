@@ -8,8 +8,8 @@ return {
 			options = {
 				icons_enabled = true,
 				-- theme = "gruvbox",
-                theme = "rose-pine",
-				-- theme = "tokyonight",
+				-- theme = "rose-pine",
+				theme = "tokyonight",
 				-- theme = "catppuccin",
 				component_separators = "|",
 				section_separators = "",
