@@ -155,7 +155,6 @@ return {
 				},
 			},
 			marksman = {},
-            nil_ls = {},
 			pyright = {},
 			rust_analyzer = {},
 			taplo = {},
