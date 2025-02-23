@@ -29,8 +29,8 @@ history = 9999
 size = 8
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
-style = "Light"
+family = "IosevkaNerdFontMono"
+style = "Regular"
 
 [font.offset]
 x = 0

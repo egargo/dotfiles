@@ -143,7 +143,7 @@ return {
 			dockerls = {},
 			emmet_ls = {},
 			gopls = {},
-			groovyls = {},
+			-- groovyls = {},
 			html = {},
 			jdtls = {},
 			jsonls = {},
