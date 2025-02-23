@@ -28,7 +28,7 @@ return {
 		end,
 		formatters_by_ft = {
 			java = { "google-java-format" },
-			lua = { "stylua" },
+			-- lua = { "stylua" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 			python = function(bufnr)
 				if require("conform").get_formatter_info("ruff_format", bufnr).available then
